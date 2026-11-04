@@ -1,0 +1,222 @@
+/* ============================================
+   Sidebar v2 — Dark premium design
+   ============================================ */
+.sidebar {
+  width: 268px;
+  min-width: 268px;
+  background: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+/* subtle top-to-bottom green gradient strip on left edge */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--green-600) 40%, var(--green-400) 60%, transparent);
+  opacity: 0.5;
+}
+
+/* ── Brand ── */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 22px 18px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.brand-icon {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--green-600), var(--green-400));
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(34,197,94,0.35);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+.brand-name {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #fff, var(--green-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.brand-sub { color: var(--text-light); font-size: 0.71rem; margin-top: 2px; letter-spacing: 0.01em; }
+
+/* ── Navigation ── */
+.sidebar-nav {
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 13px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  color: var(--text-muted);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.nav-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(34,197,94,0.08), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.nav-item:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.nav-item:hover::after { opacity: 1; }
+.nav-item.active {
+  background: rgba(34,197,94,0.12);
+  color: var(--green-400);
+  border: 1px solid rgba(34,197,94,0.2);
+}
+.nav-item.active::after { opacity: 1; }
+.nav-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border-radius: 7px;
+  transition: all var(--transition);
+}
+.nav-item.active .nav-icon { background: rgba(34,197,94,0.2); }
+.nav-text { display: flex; flex-direction: column; }
+.nav-label { font-weight: 600; font-size: 0.87rem; }
+.nav-desc  { font-size: 0.71rem; opacity: 0.6; margin-top: 1px; }
+
+/* ── Profile ── */
+.sidebar-profile {
+  margin: 6px 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+.profile-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+.profile-toggle:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+.chevron { transition: transform var(--transition); display: inline-block; font-size: 0.8rem; }
+.chevron.open { transform: rotate(180deg); }
+
+.profile-form {
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: slideIn 0.2s ease;
+}
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label {
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+.form-group select,
+.form-group input {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  color: var(--text);
+  padding: 7px 10px;
+  font-size: 0.82rem;
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+  transition: border var(--transition);
+}
+.form-group select:focus,
+.form-group input:focus { border-color: var(--green-600); box-shadow: 0 0 0 2px rgba(22,163,74,0.15); }
+.form-group select option { background: var(--bg-card-2); color: var(--text); }
+
+.pill-group { display: flex; gap: 5px; flex-wrap: nowrap; }
+.pill-group.wrap { flex-wrap: wrap; }
+.pill {
+  padding: 4px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-muted);
+  font-size: 0.73rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+.pill:hover  { border-color: var(--green-600); color: var(--green-400); }
+.pill.active { background: rgba(34,197,94,0.15); border-color: var(--green-600); color: var(--green-400); font-weight: 700; }
+
+/* ── Footer ── */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+}
+.ibm-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-light);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.ibm-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green-500);
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(34,197,94,0.8);
+  animation: pulse-live 2s infinite;
+}
+@keyframes pulse-live { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.8); } }
+.ibm-model { color: var(--text-light); font-size: 0.67rem; margin-top: 3px; opacity: 0.6; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .sidebar { width: 100%; min-width: unset; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; height: auto; min-height: 60px; padding: 0; align-items: center; }
+  .sidebar::before { width: 100%; height: 2px; top: 0; left: 0; bottom: auto; background: linear-gradient(90deg, transparent, var(--green-600) 40%, var(--green-400) 60%, transparent); }
+  .sidebar-brand { padding: 8px 14px; border-bottom: none; border-right: 1px solid var(--border); flex-shrink: 0; }
+  .sidebar-nav { flex-direction: row; padding: 8px; gap: 2px; flex: 1; }
+  .nav-desc, .brand-sub, .sidebar-footer, .sidebar-profile { display: none; }
+  .nav-item { padding: 8px 11px; }
+}
