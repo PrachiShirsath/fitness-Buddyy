@@ -1,0 +1,20 @@
+{
+  "name": "fitness-buddy",
+  "version": "1.0.0",
+  "description": "AI-powered health and fitness coach using IBM Granite and watsonx.ai",
+  "project": "Fitness Buddy",
+  "problem_statement": "Problem Statement #13",
+  "technology": [
+    "React 18",
+    "Node.js",
+    "Express.js",
+    "IBM Granite",
+    "IBM watsonx.ai"
+  ],
+  "features": [
+    "AI Fitness Chat Coach",
+    "Personalized Workout Planner",
+    "Nutrition Planner",
+    "Habit Tracker"
+  ]
+}
