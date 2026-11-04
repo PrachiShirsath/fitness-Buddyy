@@ -1,20 +1,38 @@
 {
   "name": "fitness-buddy",
   "version": "1.0.0",
-  "description": "AI-powered health and fitness coach using IBM Granite and watsonx.ai",
-  "project": "Fitness Buddy",
-  "problem_statement": "Problem Statement #13",
-  "technology": [
-    "React 18",
-    "Node.js",
-    "Express.js",
-    "IBM Granite",
-    "IBM watsonx.ai"
-  ],
+  "description": "An AI-powered conversational health and fitness coach using IBM Granite through IBM watsonx.ai.",
+  "problem_statement": {
+    "number": 13,
+    "title": "Fitness Buddy",
+    "challenge": "Provide accessible, personalized fitness guidance, nutrition suggestions, and motivation to help individuals maintain a healthy lifestyle.",
+    "objectives": [
+      "Recommend home workouts and routines based on user input.",
+      "Provide motivational tips and daily fitness inspiration.",
+      "Suggest simple and nutritious meal ideas.",
+      "Encourage habit-building and consistency."
+    ]
+  },
+  "technology": {
+    "frontend": [
+      "React 18",
+      "CSS3",
+      "Axios"
+    ],
+    "backend": [
+      "Node.js",
+      "Express.js"
+    ],
+    "ai_model": "IBM Granite 3-8B Instruct",
+    "ai_platform": "IBM watsonx.ai",
+    "cloud": "IBM Cloud"
+  },
   "features": [
     "AI Fitness Chat Coach",
     "Personalized Workout Planner",
     "Nutrition Planner",
-    "Habit Tracker"
-  ]
+    "Habit Tracker",
+    "Motivational Fitness Tips"
+  ],
+  "license": "MIT"
 }
