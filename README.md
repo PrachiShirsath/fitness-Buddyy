@@ -1,144 +1,113 @@
-<<<<<<< HEAD
 # 💪 Fitness Buddy — AI-Powered Health & Fitness Coach
 
-> **Problem Statement #13** · Powered by **IBM Granite** (ibm/granite-3-8b-instruct via watsonx.ai)
+> **Problem Statement #13** · Powered by **IBM Granite** (`ibm/granite-3-8b-instruct` via watsonx.ai)
 
-Fitness Buddy is a conversational AI health and fitness coach that provides personalized workout plans, nutrition guidance, motivational tips, and habit tracking — all powered by IBM's Granite foundation model.
-
----
+Fitness Buddy is an AI-powered personal fitness assistant that provides personalized workout plans, nutrition guidance, motivational tips, and habit tracking.
 
 ## 🚀 Features
 
 | Feature | Description |
 |---|---|
-| 💬 **AI Chat Coach** | Conversational interface powered by IBM Granite — ask anything about fitness, nutrition, or wellness |
-| 🏋️ **Workout Planner** | Generate custom home workout plans based on fitness level, goal, duration, and equipment |
-| 🥗 **Nutrition Planner** | Get personalized meal ideas by meal type, dietary preference, and calorie target |
-| 📅 **Habit Tracker** | Track daily health habits with weekly streaks, progress bars, and IBM Granite motivational tips |
-
----
+| 💬 AI Chat Coach | Conversational fitness and nutrition guidance powered by IBM Granite |
+| 🏋️ Workout Planner | Personalized home workout plans based on fitness level, goals, duration, and equipment |
+| 🥗 Nutrition Planner | Personalized meal suggestions based on dietary preferences and calorie targets |
+| 📅 Habit Tracker | Track daily health habits, progress, and consistency |
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: React 18, CSS3, Lucide Icons, react-markdown, Axios
-- **Backend**: Node.js, Express.js
-- **AI Model**: `ibm/granite-3-8b-instruct` via **IBM watsonx.ai**
-- **IBM Cloud**: watsonx.ai (Lite tier supported)
-
----
+- **Frontend:** React 18, CSS3, Lucide Icons, Axios
+- **Backend:** Node.js, Express.js
+- **AI Model:** IBM Granite 3-8B Instruct
+- **AI Platform:** IBM watsonx.ai
 
 ## ⚙️ Setup & Installation
 
-### 1. Clone & Install Dependencies
+### 1. Install dependencies
+
 ```bash
-# Install all dependencies
 npm run install:all
 ```
 
-### 2. Configure IBM watsonx.ai Credentials
+### 2. Configure IBM watsonx.ai
+
 ```bash
-# Copy example env file
 cp backend/.env.example backend/.env
 ```
 
-Edit `backend/.env`:
-```
+Configure your `backend/.env`:
+
+```env
 IBM_WATSONX_APIKEY=your_ibm_cloud_api_key
 IBM_WATSONX_URL=https://us-south.ml.cloud.ibm.com
 IBM_WATSONX_PROJECT_ID=your_watsonx_project_id
 PORT=5000
 ```
 
-#### How to get IBM watsonx credentials:
-1. Sign up at [IBM Cloud](https://cloud.ibm.com) (free Lite account)
-2. Create a **watsonx.ai** project at [dataplatform.cloud.ibm.com](https://dataplatform.cloud.ibm.com)
-3. Go to **Manage → Access (IAM)** → **API Keys** → Create API key
-4. Copy your **Project ID** from the watsonx.ai project settings
+### 3. Run the application
 
-### 3. Run the Application
+**Backend:**
 
-**Terminal 1 — Backend:**
 ```bash
 npm run dev:backend
-# Starts on http://localhost:5000
 ```
 
-**Terminal 2 — Frontend:**
+**Frontend:**
+
 ```bash
 npm run dev:frontend
-# Starts on http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
+Open `http://localhost:3000` in your browser.
 
 ## 📁 Project Structure
 
-```
+```text
 fitness-buddy/
 ├── backend/
-│   ├── server.js          # Express API + IBM watsonx.ai integration
-│   ├── .env.example       # Environment variables template
+│   ├── server.js
+│   ├── .env.example
 │   └── package.json
 ├── frontend/
 │   ├── src/
-│   │   ├── App.js         # Root component + routing
+│   │   ├── App.js
 │   │   ├── components/
-│   │   │   ├── Sidebar.js # Navigation + user profile
-│   │   │   └── Sidebar.css
 │   │   └── pages/
-│   │       ├── ChatPage.js        # AI chat interface
-│   │       ├── WorkoutPage.js     # Workout generator
-│   │       ├── NutritionPage.js   # Meal planner
-│   │       └── HabitsPage.js      # Habit tracker
 │   └── package.json
-└── package.json           # Root scripts
+└── package.json
 ```
-
----
 
 ## 🔌 API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/api/chat` | Conversational AI chat (multi-turn) |
-| `POST` | `/api/workout` | Generate workout plan |
-| `POST` | `/api/meal` | Generate meal suggestions |
-| `GET`  | `/api/motivation` | Get motivational tip |
-| `GET`  | `/api/health` | Health check + config status |
-
----
+| POST | `/api/chat` | AI conversational chat |
+| POST | `/api/workout` | Generate workout plans |
+| POST | `/api/meal` | Generate meal suggestions |
+| GET | `/api/motivation` | Motivational tips |
+| GET | `/api/health` | Backend health check |
 
 ## 🏗️ Architecture
 
+```text
+React Frontend (Port 3000)
+        ↕ Axios HTTP
+Express Backend (Port 5000)
+        ↕ IBM watsonx.ai SDK
+IBM Granite Foundation Model
 ```
-React Frontend (port 3000)
-       ↕ Axios HTTP
-Express Backend (port 5000)
-       ↕ @ibm-cloud/watsonx-ai SDK
-IBM watsonx.ai → ibm/granite-3-8b-instruct
-```
-
----
 
 ## 📋 Problem Statement Compliance
 
-- ✅ **Home workout recommendations** — Customized by level, goal, duration, equipment
-- ✅ **Motivational tips** — Daily AI-generated motivation via IBM Granite
-- ✅ **Nutritious meal ideas** — Meal planner with dietary preferences
-- ✅ **Habit-building & consistency** — Visual habit tracker with streak tracking
-- ✅ **IBM Cloud Lite / IBM Granite** — Uses `ibm/granite-3-8b-instruct` via watsonx.ai
+- Personalized home workout recommendations.
+- AI-generated motivational tips.
+- Nutritious meal suggestions.
+- Habit building and consistency tracking.
+- IBM Granite integration through watsonx.ai.
+
+## 🔐 Security
+
+Never commit your `backend/.env` file. Use `.env.example` as a configuration template.
 
 ---
 
-## 🔐 Security Note
-
-Never commit your `backend/.env` file. The `.env.example` file is provided as a template only.
-
----
-
-*Built for Problem Statement #13 — Fitness Buddy · IBM Granite AI*
-=======
-# fitness-Buddyy
->>>>>>> 71694f13d1b0029dbb6828b1eeccafa199eea425
+**Built for Problem Statement #13 — Fitness Buddy | IBM Granite AI**
